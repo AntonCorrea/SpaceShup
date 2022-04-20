@@ -14,6 +14,10 @@ public class Map : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += new Vector3(0f, dY * Time.deltaTime, 0f);
+        
+        if(transform.position.y > -35)
+        {
+            transform.position += new Vector3(0f, dY * Time.deltaTime, 0f);
+        }
     }
 }

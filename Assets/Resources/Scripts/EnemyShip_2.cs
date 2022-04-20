@@ -28,5 +28,10 @@ public class EnemyShip_2 : MonoBehaviour
         {
             start = true;
         }
+
+        if (other.gameObject.tag == "Player")
+        {
+            other.GetComponent<Player>().TakeDamage("enemigo");
+        }
     }
 }
