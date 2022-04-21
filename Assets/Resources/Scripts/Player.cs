@@ -9,10 +9,13 @@ public class Player : MonoBehaviour
     public float bulletPos;
     private CharacterController characterController;
     public GameObject explosion;
+    public Animator animator;
+    public GameManager gameManager;
 
     void Start() 
     { 
         characterController = GetComponent<CharacterController>();
+        animator = GetComponent<Animator>();
     }
     // Update is called once per frame
     void Update()
@@ -37,8 +40,13 @@ public class Player : MonoBehaviour
         GameObject newExplosion = GameObject.Instantiate(explosion);
         newExplosion.transform.position = transform.position;
 
-        Destroy(gameObject);
+        gameObject.SetActive(false);
+        gameManager.GameOver();
+    }
 
-    } 
+    public void DisableAnimator()
+    {
+        animator.enabled = false;
+    }
     
 }
