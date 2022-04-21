@@ -7,16 +7,11 @@ public class Player : MonoBehaviour
     public float movCoef = 0.1f;
     public GameObject bullet;
     public float bulletPos;
-    private CharacterController characterController;
+    public CharacterController characterController;
     public GameObject explosion;
     public Animator animator;
     public GameManager gameManager;
 
-    void Start() 
-    { 
-        characterController = GetComponent<CharacterController>();
-        animator = GetComponent<Animator>();
-    }
     // Update is called once per frame
     void Update()
     {
@@ -41,7 +36,7 @@ public class Player : MonoBehaviour
         newExplosion.transform.position = transform.position;
 
         gameObject.SetActive(false);
-        gameManager.GameOver();
+        gameManager.GameOver("Game Over");
     }
 
     public void DisableAnimator()
